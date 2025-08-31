@@ -12,14 +12,30 @@ class DatabaseHelper(context: Context) :
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(
             "CREATE TABLE users (" +
-                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "username TEXT, " +
+                    "user_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "username TEXT UNIQUE, " +
                     "password TEXT)"
+        )
+
+        db?.execSQL(
+            "CREATE TABLE menu(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "name TEXT, " +
+                    "price INTEGER)"
+        )
+
+        db?.execSQL(
+            "CREATE TABLE cart(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "itemName TEXT, " +
+                    "price INTEGER)"
         )
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         db?.execSQL("DROP TABLE IF EXISTS users")
+        db?.execSQL("DROP TABLE IF EXISTS menu")
+        db?.execSQL("DROP TABLE IF EXISTS cart")
         onCreate(db)
     }
 
@@ -39,6 +55,7 @@ class DatabaseHelper(context: Context) :
         )
         val exists = cursor.count > 0
         cursor.close()
+        db.close()
         return exists
     }
 
