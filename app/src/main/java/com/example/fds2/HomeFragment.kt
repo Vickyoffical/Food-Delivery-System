@@ -15,6 +15,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.fds2.database.DatabaseHelper
 import com.google.android.material.tabs.TabLayout
 
 class HomeFragment : Fragment() {
@@ -116,19 +117,39 @@ class HomeFragment : Fragment() {
 
         })
 
-     pizza.setOnClickListener {
-         findNavController().navigate(R.id.action_home_to_res1)
-      }
+        pizza.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_res1)
+        }
+
         burger.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_res2)
-     }
+        }
+
         chinese.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_res3)
         }
+
         south.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_res4)
         }
 
-    }
+        val dbHelper = DatabaseHelper(requireContext())
+
+        if (dbHelper.getAllRestaurants().isEmpty()) {
+            dbHelper.insertRestaurant("Pizza Hut", "Pizza", 4.5)
+            dbHelper.insertRestaurant("Burger King", "Burger", 4.2)
+            dbHelper.insertRestaurant("Dragon Chinese", "Chinese", 4.0)
+            dbHelper.insertRestaurant("South Spice", "South Indian", 4.3)
+        }
+
+        val restaurants = dbHelper.getAllRestaurants()
+
+        tvPizza.text = restaurants.find { it.category == "Pizza" }?.name ?: "Pizza"
+        tvBurger.text = restaurants.find { it.category == "Burger" }?.name ?: "Burger"
+        tvChinese.text = restaurants.find { it.category == "Chinese" }?.name ?: "Chinese"
+        tvSouth.text = restaurants.find { it.category == "South Indian" }?.name ?: "South"
+
 
     }
+
+}
