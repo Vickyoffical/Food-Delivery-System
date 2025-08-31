@@ -1,0 +1,381 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#237300"
+    android:orientation="vertical"
+    tools:context=".fragments.Restaurant1">
+
+    <!-- AppBar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#237300"
+        android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/mark_pro_bold"
+            android:text="Chinatown"
+            android:textColor="@color/white"
+            android:textSize="25dp" />
+
+        <EditText
+            android:id="@+id/search3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:hint="Search in Chinatown"
+            android:textSize="20dp"
+            android:paddingLeft="20dp"
+            android:fontFamily="@font/mark_pro_medium"
+            android:paddingTop="10dp"
+            android:background="@drawable/resource02"
+            android:paddingBottom="10dp" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Background CardView -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="30dp"
+        app:cardElevation="10dp"
+        app:shapeAppearanceOverlay="@style/RoundCorners_Top">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@drawable/resource03"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Menu"
+                android:textSize="25dp"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/mark_pro_bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="15dp"
+                />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="85dp"
+            android:layout_marginBottom="7dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Restaurant Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/manchurianCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginBottom="16dp"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="8dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+
+                        <ImageView
+                            android:id="@+id/restaurantImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/veg_manchurian"
+                            />
+
+                        <TextView
+                            android:id="@+id/manchurian"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_margin="12dp"
+                            android:text="Veg Manchurian"
+                            android:fontFamily="@font/mark_pro_bold"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/addManchurian"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Add"
+                            android:fontFamily="@font/mark_pro_bold"
+                            android:paddingLeft="20dp"
+                            android:textColor="@color/white"
+                            android:textAllCaps="false"
+                            android:textSize="20dp"
+                            android:paddingRight="20dp"
+                            android:layout_marginTop="120dp"
+                            android:layout_marginLeft="210dp"
+                            android:background="@drawable/resource01"
+                            />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/paneerCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="8dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/restaurantImage2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/paneer_chilly" />
+
+                        <TextView
+                            android:id="@+id/paneerChilly"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_margin="12dp"
+                            android:text="Paneer Chilly"
+                            android:fontFamily="@font/mark_pro_bold"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/addPaneer"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Add"
+                            android:fontFamily="@font/mark_pro_bold"
+                            android:paddingLeft="20dp"
+                            android:textColor="@color/white"
+                            android:textAllCaps="false"
+                            android:textSize="20dp"
+                            android:paddingRight="20dp"
+                            android:layout_marginTop="120dp"
+                            android:layout_marginLeft="210dp"
+                            android:background="@drawable/resource01"
+                            />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/noodlesCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="8dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/restaurantImage3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/noodles"/>
+
+                        <TextView
+                            android:id="@+id/noodles"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_margin="12dp"
+                            android:text="Veg Noodles"
+                            android:fontFamily="@font/mark_pro_bold"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/addNoodles"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Add"
+                            android:fontFamily="@font/mark_pro_bold"
+                            android:paddingLeft="20dp"
+                            android:textColor="@color/white"
+                            android:textAllCaps="false"
+                            android:textSize="20dp"
+                            android:paddingRight="20dp"
+                            android:layout_marginTop="120dp"
+                            android:layout_marginLeft="210dp"
+                            android:background="@drawable/resource01"
+                            />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/riceCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="8dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/restaurantImage4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/veg_rice" />
+
+                        <TextView
+                            android:id="@+id/rice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_margin="12dp"
+                            android:text="Fried Rice"
+                            android:fontFamily="@font/mark_pro_bold"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/addRice"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Add"
+                            android:fontFamily="@font/mark_pro_bold"
+                            android:paddingLeft="20dp"
+                            android:textColor="@color/white"
+                            android:textAllCaps="false"
+                            android:textSize="20dp"
+                            android:paddingRight="20dp"
+                            android:layout_marginTop="120dp"
+                            android:layout_marginLeft="210dp"
+                            android:background="@drawable/resource01"
+                            />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/drinksCard3"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="8dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/restaurantImage5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/drinks_3" />
+
+                        <TextView
+                            android:id="@+id/drinks3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_margin="12dp"
+                            android:text="Beverages"
+                            android:fontFamily="@font/mark_pro_bold"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/addDrinks3"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Add"
+                            android:fontFamily="@font/mark_pro_bold"
+                            android:paddingLeft="20dp"
+                            android:textColor="@color/white"
+                            android:textAllCaps="false"
+                            android:textSize="20dp"
+                            android:paddingRight="20dp"
+                            android:layout_marginTop="120dp"
+                            android:layout_marginLeft="210dp"
+                            android:background="@drawable/resource01"
+                            />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnOrder3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/resource01"
+            android:backgroundTint="@color/white"
+            android:paddingTop="5dp"
+            android:text="Order"
+            android:textSize="20dp"
+            android:fontFamily="@font/mark_pro_bold"
+            android:visibility="gone"
+            android:textColor="#237300"
+            android:paddingBottom="5dp"/>
+
+    </FrameLayout>
+
+</LinearLayout>

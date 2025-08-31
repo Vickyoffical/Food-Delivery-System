@@ -1,0 +1,99 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/signupFragment">
+
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.example.fds2.SignUpFragment">
+        <action android:id="@+id/action_signup_to_home"
+            app:destination="@+id/homeFragment"/>
+        <action android:id="@+id/action_signup_to_login"
+            app:destination="@+id/loginFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.fds2.LoginFragment">
+        <action
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/homeFragment"/>
+        <action
+            android:id="@+id/action_login_to_signup"
+            app:destination="@+id/signupFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.fds2.HomeFragment">
+        <action
+            android:id="@+id/action_home_to_res1"
+            app:destination="@id/restaurantMenu1" />
+
+        <action
+            android:id="@+id/action_home_to_res2"
+            app:destination="@+id/restaurantMenu2"
+            />
+
+        <action
+            android:id="@+id/action_home_to_res3"
+            app:destination="@+id/restaurantMenu3"
+            />
+
+        <action
+            android:id="@+id/action_home_to_res4"
+            app:destination="@+id/restaurantMenu4"
+            />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/restaurantMenu1"
+        android:name="com.example.fds2.RestaurantMenu1">
+        <action
+            android:id="@+id/action_pizza_to_order"
+            app:destination="@+id/orderSummary"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/restaurantMenu2"
+        android:name="com.example.fds2.RestaurantMenu2">
+        <action
+            android:id="@+id/action_burger_to_order"
+            app:destination="@+id/orderSummary"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/restaurantMenu3"
+        android:name="com.example.fds2.RestaurantMenu3">
+        <action
+            android:id="@+id/action_chinese_to_order"
+            app:destination="@+id/orderSummary"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/restaurantMenu4"
+        android:name="com.example.fds2.RestaurantMenu4">
+        <action
+            android:id="@+id/action_south_to_order"
+            app:destination="@+id/orderSummary"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/orderSummary"
+        android:name="com.example.fds2.OrderSummaryFragment">
+        <action
+            android:id="@+id/action_order_to_splash"
+            app:destination="@+id/splashOrderSummary"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/splashOrderSummary"
+        android:name="com.example.fds2.SplashFragment">
+        <action
+            android:id="@+id/action_splash_to_home"
+            app:destination="@+id/homeFragment"/>
+    </fragment>
+
+</navigation>
