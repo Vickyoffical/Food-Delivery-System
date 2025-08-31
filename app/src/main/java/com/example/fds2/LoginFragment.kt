@@ -9,12 +9,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.fds2.database.DatabaseHelper
 
 class LoginFragment : Fragment() {
     override fun onCreateView(i: LayoutInflater, c: ViewGroup?, s: Bundle?) =
@@ -25,6 +27,7 @@ class LoginFragment : Fragment() {
     private lateinit var loginPassword: EditText
     private lateinit var loginButton: Button
     private lateinit var loginTV: TextView
+    private lateinit var dbhelper : DatabaseHelper
 
     override fun onViewCreated(v: View, s: Bundle?) {
 
@@ -32,6 +35,8 @@ class LoginFragment : Fragment() {
         loginPassword = v.findViewById(R.id.edit_mobile)
         loginButton = v.findViewById(R.id.loginBtn)
         loginTV = v.findViewById(R.id.loginTV)
+
+        dbhelper = DatabaseHelper(requireContext())
 
         loginButton.isEnabled = false
 
@@ -52,7 +57,15 @@ class LoginFragment : Fragment() {
         loginPassword.addTextChangedListener(textWatcher)
 
         loginButton.setOnClickListener {
-            findNavController().navigate(R.id.action_login_to_home)
+            val username = loginUsername.text.toString().trim()
+            val password = loginPassword.text.toString().trim()
+            //findNavController().navigate(R.id.action_login_to_home)
+
+            if (dbhelper.checkUser(username,password)){
+                findNavController().navigate(R.id.action_login_to_home)
+            }else{
+                Toast.makeText(context, "Invalid Username or Password", Toast.LENGTH_SHORT).show()
+            }
         }
         loginTV.setOnClickListener{
             findNavController().navigate(R.id.action_login_to_signup)
