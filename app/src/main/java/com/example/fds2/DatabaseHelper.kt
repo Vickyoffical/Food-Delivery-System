@@ -30,12 +30,21 @@ class DatabaseHelper(context: Context) :
                     "itemName TEXT, " +
                     "price INTEGER)"
         )
+
+        db?.execSQL(
+            "CREATE TABLE restaurants(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "name TEXT, " +
+                    "category TEXT, " +
+                    "rating REAL)"
+        )
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         db?.execSQL("DROP TABLE IF EXISTS users")
         db?.execSQL("DROP TABLE IF EXISTS menu")
         db?.execSQL("DROP TABLE IF EXISTS cart")
+        db?.execSQL("DROP TABLE IF EXISTS restaurants")
         onCreate(db)
     }
 
